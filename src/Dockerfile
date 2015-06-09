@@ -1,4 +1,4 @@
-FROM java:java:8u45-jdk
+FROM java:8u45-jdk
 
 MAINTAINER fvigotti
 
