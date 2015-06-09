@@ -1,6 +1,4 @@
-#FROM maven:3.3.3-jdk-8-onbuild
 FROM fvigotti/docker-fatjdk8
-FROM java:java:8u45-jdk
 
 MAINTAINER fvigotti
 
