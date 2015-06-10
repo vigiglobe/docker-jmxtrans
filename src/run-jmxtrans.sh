@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LOG_DIR=${LOG_DIR:-"/var/log/jmxtrans"}
 LOG_FILE=${LOG_FILE:-"/var/log/jmxtrans/jmxtrans.log"}
@@ -27,7 +27,7 @@ else
 fi
 
 
-if ! [ -f $JAR_FILE ]; then
+if [ ! -f $JAR_FILE ]; then
   echo "File not found - $JAR_FILE"
   exit 1
 fi
