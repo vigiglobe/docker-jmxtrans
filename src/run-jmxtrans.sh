@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "starting..."
 LOG_DIR=${LOG_DIR:-"/var/log/jmxtrans"}
 LOG_FILE=${LOG_FILE:-"/var/log/jmxtrans/jmxtrans.log"}
 SECONDS_BETWEEN_RUNS=${SECONDS_BETWEEN_RUNS:-"60"}
@@ -26,9 +26,9 @@ else
   ADDITIONAL_JARS_OPTS="-a ${ADDITIONAL_JARS}"
 fi
 
-
+echo "jar file location = ${JAR_FILE}"
 if [ ! -f $JAR_FILE ]; then
-  echo "ENV SPECIFIED JAR_FILE File not found - $JAR_FILE"
+  echo "ENV SPECIFIED  JAR_FILE File not found - $JAR_FILE"
   exit 1
 fi
 
@@ -39,7 +39,9 @@ else
     EXEC=${EXEC:-"-jar $JAR_FILE -e -f $FILENAME -s $SECONDS_BETWEEN_RUNS -c $CONTINUE_ON_ERROR $ADDITIONAL_JARS_OPTS"}
 fi
 
-echo $JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC >>$LOG_FILE 2>&1
+echo "exec details : ${EXEC}"
+echo "INIT.." >>$LOG_FILE
+echo $JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC
 exec $JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC >>$LOG_FILE 2>&1
 
 

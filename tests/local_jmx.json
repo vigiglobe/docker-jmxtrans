@@ -1,6 +1,6 @@
 {
   "servers" : [ {
-    "port" : "{{ jmxt_JMX_PORT }}",
+    "port" : "2101",
     "host" : "127.0.0.1",
     "queries" : [ {
       "outputWriters" : [ {
