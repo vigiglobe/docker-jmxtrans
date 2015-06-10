@@ -28,7 +28,7 @@ fi
 
 
 if [ ! -f $JAR_FILE ]; then
-  echo "File not found - $JAR_FILE"
+  echo "ENV SPECIFIED JAR_FILE File not found - $JAR_FILE"
   exit 1
 fi
 
@@ -40,8 +40,7 @@ else
 fi
 
 echo $JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC >>$LOG_FILE 2>&1
-$JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC >>$LOG_FILE 2>&1
+exec $JAVAJDK_BIN -server $JAVA_OPTS $JMXTRANS_OPTS $GC_OPTS $MONITOR_OPTS $EXEC >>$LOG_FILE 2>&1
 
 
-exec /usr/share/jmxtrans/bin/jmxtrans.sh
 
