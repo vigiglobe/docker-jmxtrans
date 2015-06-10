@@ -27,7 +27,7 @@ else
 fi
 
 
-if [ ! -f $JAR_FILE ]; then
+if ! [ -f $JAR_FILE ]; then
   echo "File not found - $JAR_FILE"
   exit 1
 fi
