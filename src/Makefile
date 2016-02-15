@@ -1,6 +1,6 @@
 NAME	= jmxtrans
 REGISTRY= maven.vigiglo.be:5000
-ARGS	= 
+ARGS	= -v /var/lib/jmxtrans:/var/lib/jmxtrans
 VERSION	= 1
 RUNNING = docker run $(ARGS) $(NAME):$(VERSION)
 
